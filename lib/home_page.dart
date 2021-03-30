@@ -14,32 +14,39 @@ class HomePage extends StatelessWidget {
         children: List<Widget>.generate(
           10,
           (index) => ExpandListTile(
-            collapsedChild: ListTile(
-              leading: Image.asset('assets/placeholder_image.png'),
-              title: Text('Item $index Title'),
-              subtitle: Text('Subtitle'),
+            collapsedChild: DecoratedBox(
+              decoration: BoxDecoration(),
+              child: ListTile(
+                leading: Image.asset('assets/placeholder_image.png'),
+                title: Text('Item $index Title'),
+                subtitle: Text('Subtitle'),
+              ),
             ),
-            expandedChild: Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Image.asset(
-                    'assets/placeholder_image.png',
-                    width: 32.2 * 4,
-                    height: 29.4 * 4,
-                  ),
-                  const SizedBox(
-                    height: 8.0,
-                  ),
-                  Flexible(
-                    child: Text(
-                      lorem_ipsum,
-                      overflow: TextOverflow.fade,
+            expandedChild: DecoratedBox(
+              decoration: BoxDecoration(),
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Image.asset(
+                      'assets/placeholder_image.png',
+                      width: 32.2 * 4,
+                      height: 29.4 * 4,
                     ),
-                  ),
-                ],
+                    const SizedBox(
+                      height: 8.0,
+                    ),
+                    Flexible(
+                      child: Text(
+                        lorem_ipsum,
+                        overflow: TextOverflow.fade,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
