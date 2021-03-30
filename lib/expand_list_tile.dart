@@ -33,8 +33,10 @@ class _ExpandListTileState extends State<ExpandListTile>
   void initState() {
     super.initState();
     _controller = AnimationController(vsync: this, duration: widget.duration);
-    _flipAnimation = CurvedAnimation(parent: _controller, curve: Interval(0.5, 1.0, curve: Curves.ease));
-    _expandAnimation = CurvedAnimation(parent: _controller, curve: Interval(0.0, 0.5, curve: Curves.ease));
+    _flipAnimation = CurvedAnimation(
+        parent: _controller, curve: Interval(0.5, 1.0, curve: Curves.ease));
+    _expandAnimation = CurvedAnimation(
+        parent: _controller, curve: Interval(0.0, 0.5, curve: Curves.ease));
   }
 
   @override
@@ -64,7 +66,8 @@ class _ExpandListTileState extends State<ExpandListTile>
             child: Stack(
               children: [
                 Transform.translate(
-                  offset: Offset(0, -widget.collapsedHeight * (_flipAnimation.value)),
+                  offset: Offset(
+                      0, -widget.collapsedHeight * (_flipAnimation.value)),
                   child: Transform(
                     alignment: Alignment.bottomCenter,
                     transform: Matrix4.identity()
@@ -74,7 +77,8 @@ class _ExpandListTileState extends State<ExpandListTile>
                   ),
                 ),
                 Transform.translate(
-                  offset: Offset(0, -widget.collapsedHeight * (_flipAnimation.value - 1)),
+                  offset: Offset(
+                      0, -widget.collapsedHeight * (_flipAnimation.value - 1)),
                   child: Transform(
                     alignment: Alignment.topCenter,
                     transform: Matrix4.identity()
@@ -95,7 +99,8 @@ class _ExpandListTileState extends State<ExpandListTile>
   }
 
   void _toggle() {
-    if (_controller.status == AnimationStatus.completed || _controller.status == AnimationStatus.forward){
+    if (_controller.status == AnimationStatus.completed ||
+        _controller.status == AnimationStatus.forward) {
       _controller.reverse();
     } else {
       _controller.forward();
